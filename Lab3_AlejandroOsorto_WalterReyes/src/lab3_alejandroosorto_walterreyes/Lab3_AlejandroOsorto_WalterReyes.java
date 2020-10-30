@@ -1,6 +1,9 @@
 package lab3_alejandroosorto_walterreyes;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Lab3_AlejandroOsorto_WalterReyes
@@ -14,7 +17,7 @@ public class Lab3_AlejandroOsorto_WalterReyes
     static ArrayList empleados = new ArrayList();
     static ArrayList producto = new ArrayList();
     
-    public static void main(String[] args)
+    public static void main(String[] args) throws ParseException
     {
         int opcion = 0;
         int valid = 0;
@@ -189,15 +192,119 @@ public class Lab3_AlejandroOsorto_WalterReyes
                                             String correo = lectura.next();
                                             System.out.print("Ingrese nombre completo: ");
                                             lectura.nextLine();
-                                            String nombreEmpleado = lectura.nextLine();
+                                            //String nombreEmpleado = lectura.nextLine();
                                             Personas p = new Personas(id, usuario, contraseña, correo, nombre);
                                             gente.add(p);
                                         }
-                                    }
-                                    break;
+                                    } break;
                                 }
-                            }
-                            break;
+                            } break; //Fin de gestion de locales
+                            case 2:
+                            {
+                                
+                            } break; //Fin de gestion de personas
+                            case 3:
+                            {
+                                System.out.println("---OTRO MENU---");
+                                System.out.println("1) Añadir producto");
+                                System.out.println("2) Eliminar producto");
+                                System.out.println("3) Editar producto");
+                                System.out.println("---------------");
+                                System.out.print("Ingrese una opcion: ");
+                                int subSubOpcion = lectura.nextInt();
+                                
+                                switch (subSubOpcion)
+                                {
+                                    case 1:
+                                    {
+                                        System.out.print("Ingrese la descripcion del producto: ");
+                                        lectura.nextLine();
+                                        String desc = lectura.nextLine();
+                                        System.out.print("Ingrese el nombre del producto: ");
+                                        String nombre = lectura.next();
+                                        System.out.print("Ingrese el precio: ");
+                                        double precio = lectura.nextDouble();
+                                        System.out.println("Ingrese el tipo de producto(1 = ropa, 2= juguete, 3= comida): ");
+                                        int tipo = lectura.nextInt();
+                                        if (tipo == 1) //Ropa
+                                        {
+                                            System.out.print("Ingrese el sexo de la ropa(M/F): ");
+                                            char sexo = lectura.next().charAt(0);
+                                            System.out.print("Ingrese la talla de la prenda(S,M,L): ");
+                                            char talla = lectura.next().charAt(0);
+                                            
+                                            producto.add(new Ropa(sexo, talla, desc, nombre, precio));
+                                        }
+                                        else if (tipo == 2) //Juguete
+                                        {
+                                            System.out.print("Ingrese la descripcion del juguete: ");
+                                            lectura.nextLine();
+                                            String descJug = lectura.nextLine();
+                                            producto.add(new Juguetes(descJug, desc, nombre, precio));
+                                        }
+                                        else if (tipo == 3) //Comida
+                                        {
+                                            System.out.print("Ingrese el tipo de comida(1 = Comida, 2 = Bebida): ");
+                                            int tipoComida = lectura.nextInt();
+                                            System.out.print("Ingrese la fecha de caducidad(dd/MM/yyyy): ");
+                                            String fechaS = lectura.next();
+                                            SimpleDateFormat df = new SimpleDateFormat("dd/mm/yyyy");
+                                            Date fecha = df.parse(fechaS);
+                                            
+                                            producto.add(new Comida(tipoComida, fecha, desc, nombre, precio));
+                                        }
+                                        
+                                    } break;
+                                    case 2:
+                                    {
+                                        System.out.print("Ingrese la posicion en la lista donde esté el producto que quiera eliminar: ");
+                                        int pos = lectura.nextInt();
+                                        
+                                        if (pos >= 0 && pos < producto.size())
+                                        {
+                                            producto.remove(pos);
+                                        }
+                                        else
+                                        {
+                                            System.out.println("Posicion ingresada fuera de rango");
+                                        }
+                                    } break;
+                                    case 3:
+                                    {
+                                        System.out.print("Ingrese la posicion en la lista donde esté el producto que quiera modificar: ");
+                                        int pos = lectura.nextInt();
+                                        
+                                        if (pos >= 0 && pos < producto.size())
+                                        {
+                                            System.out.println("Que desea modificar?");
+                                            System.out.println("1) Descripcion");
+                                            System.out.println("2) Nombre");
+                                            System.out.println("3) Precio");
+                                            System.out.println("4) Tipo");
+                                            System.out.print("Ingrese la opcion: ");
+                                            int opcionModificar = lectura.nextInt();
+                                            
+                                            switch (opcionModificar)
+                                            {
+                                                case 1:
+                                                {
+                                                    System.out.print("Ingrese la nueva descripcion: ");
+                                                    lectura.nextLine();
+                                                    String desc = lectura.nextLine();
+                                                    
+                                                    
+                                                } break;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            System.out.println("Posicion ingresada fuera de rango");
+                                        }
+                                        
+                                    } break;
+                                }
+                                
+                            } break; //Fin de gestion de productos
                         }
                     }
                 }
