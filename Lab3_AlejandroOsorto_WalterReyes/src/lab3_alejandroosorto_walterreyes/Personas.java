@@ -1,10 +1,11 @@
 
 package lab3_alejandroosorto_walterreyes;
-
+import java.util.Scanner;
 import java.util.ArrayList;
 
 
 public class Personas {
+    static Scanner lectura= new Scanner(System.in);
 protected ArrayList id = new ArrayList();
 protected ArrayList Username = new ArrayList();
 protected String contraseña;
