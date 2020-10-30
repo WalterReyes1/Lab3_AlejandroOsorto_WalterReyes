@@ -53,6 +53,238 @@ public class Lab3_AlejandroOsorto_WalterReyes {
                   break;
               }
               
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              case 3:
+              {
+                  System.out.print("Ingrese el usuario del SUDO: ");
+                  String usuarioSUDO = lectura.next();
+                  
+                  //Aqui valido si el usuario existe
+                  
+                  //--------------------------------
+                  
+                  System.out.print("Ingrese la contraseña: ");
+                  String contraseña = lectura.next();
+                  
+                  //Aqui valido la contraseña
+                  
+                  //-------------------------
+                  
+                  int subOpcion = 1;
+                  
+                  while (subOpcion != 4)
+                  {
+                      System.out.println("---MENU---");
+                      System.out.println("1) Gestionar Locales");
+                      System.out.println("2) Gestionar Personas");
+                      System.out.println("3) Gestionar Productos");
+                      System.out.println("4 Salir");
+                      System.out.println("----------");
+                      System.out.print("Ingrese la opcion que desee usar: ");
+                      subOpcion = lectura.nextInt();
+                      
+                      switch (subOpcion)
+                      {
+                          case 1:
+                          {
+                              System.out.println("---OTRO MENU---");
+                              System.out.println("1) Añadir local");
+                              System.out.println("2) Eliminar local");
+                              System.out.println("3) Editar local");
+                              System.out.println("---------------");
+                              System.out.print("Ingrese una opcion: ");
+                              int subSubOpcion = lectura.nextInt();
+                              
+                              switch (subSubOpcion)
+                              {
+                                  case 1:
+                                  {
+                                      System.out.print("Ingrese el nombre del nuevo local: ");
+                                      String nombre = lectura.next();
+                                      System.out.println("");
+                                  } break;
+                              } 
+                          } break;
+                      }
+                  }
+                  
+              } break;
+              
           }// fin switch
           
           
