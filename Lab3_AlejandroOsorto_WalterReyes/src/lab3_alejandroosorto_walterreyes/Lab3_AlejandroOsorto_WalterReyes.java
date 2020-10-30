@@ -11,7 +11,9 @@ public class Lab3_AlejandroOsorto_WalterReyes
     static ArrayList usuarios = new ArrayList();
     static ArrayList contraseñas = new ArrayList();
     static ArrayList Locales = new ArrayList();
-
+    static ArrayList empleados = new ArrayList();
+    static ArrayList producto = new ArrayList();
+    
     public static void main(String[] args)
     {
         int opcion = 0;
@@ -150,7 +152,47 @@ public class Lab3_AlejandroOsorto_WalterReyes
                                     {
                                         System.out.print("Ingrese el nombre del nuevo local: ");
                                         String nombre = lectura.next();
-                                        System.out.println("");
+                                        
+                                        System.out.print("Ingrese el nombre del gerente: ");
+                                        String nombreG = lectura.next();
+                                        
+                                        boolean fin = false;
+                                        
+                                        while (fin == false)
+                                        {
+                                            System.out.print("Ingrese un empleado: ");
+                                            String nombreEmpleado = lectura.next();
+                                            System.out.print("Ingrese su ");
+                                            
+                                            String usuario;
+                                            System.out.print("Ingrese un nombre de usuario: ");
+                                            usuario = lectura.next();
+                                            if (usuarios.contains(usuario))
+                                            {
+                                                do
+                                                {
+                                                    System.out.print("Ese usuario ya existe, ingrese otro: ");
+                                                    usuario = lectura.next();
+
+                                                } while (usuarios.contains(usuario));
+                                            }
+                                            usuarios.add(usuario);
+
+                                            System.out.print("Ingrese id: ");
+                                            int id = lectura.nextInt();
+
+                                            System.out.print("Ingrese contraseña: ");
+                                            String contraseñaEmpleado = lectura.next();
+                                            contraseñas.add(contraseña);
+
+                                            System.out.print("Ingrese correo: ");
+                                            String correo = lectura.next();
+                                            System.out.print("Ingrese nombre completo: ");
+                                            lectura.nextLine();
+                                            String nombreEmpleado = lectura.nextLine();
+                                            Personas p = new Personas(id, usuario, contraseña, correo, nombre);
+                                            gente.add(p);
+                                        }
                                     }
                                     break;
                                 }
