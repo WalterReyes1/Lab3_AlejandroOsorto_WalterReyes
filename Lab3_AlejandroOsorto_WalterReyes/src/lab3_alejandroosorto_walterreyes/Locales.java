@@ -11,6 +11,7 @@ public class Locales {
  protected String gerente;
 
     public Locales() {
+       super();
     }
 
     public Locales(String nombre, ArrayList empleados, ArrayList productos, String gerente) {
