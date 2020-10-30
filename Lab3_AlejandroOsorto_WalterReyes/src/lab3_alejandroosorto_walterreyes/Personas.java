@@ -5,8 +5,10 @@ import java.util.ArrayList;
 
 
 public class Personas {
-    static Scanner lectura= new Scanner(System.in);
+protected Scanner lectura= new Scanner(System.in);
 protected ArrayList id = new ArrayList();
+protected int ide;
+protected String user;
 protected ArrayList Username = new ArrayList();
 protected String contraseña;
 protected String Correo;
@@ -15,11 +17,15 @@ protected String nombre;
     public Personas() {
     }
 
-    public Personas(String contraseña, String Correo, String nombre) {
+    public Personas(int ide, String user, String contraseña, String Correo, String nombre) {
+        this.ide = ide;
+        this.user = user;
         this.contraseña = contraseña;
         this.Correo = Correo;
         this.nombre = nombre;
     }
+
+    
 
     public ArrayList getId() {
         return id;

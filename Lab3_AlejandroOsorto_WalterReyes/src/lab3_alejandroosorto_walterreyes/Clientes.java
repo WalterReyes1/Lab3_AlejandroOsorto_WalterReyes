@@ -16,10 +16,12 @@ public class Clientes extends Personas
 
     public Clientes()
     {
+        super();
     }
 
     public Clientes(double cantDinero, ArrayList carrito)
     {
+        
         this.cantDinero = cantDinero;
         this.carrito = carrito;
     }

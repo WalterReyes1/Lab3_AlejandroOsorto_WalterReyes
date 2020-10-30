@@ -9,11 +9,13 @@ public class Empleados extends Personas {
     super();
     }
 
-    public Empleados(String horario, int vendido, String contraseña, String Correo, String nombre) {
-        super(contraseña, Correo, nombre);
+    public Empleados(String horario, int vendido, int ide, String user, String contraseña, String Correo, String nombre) {
+        super(ide, user, contraseña, Correo, nombre);
         this.horario = horario;
         this.vendido = vendido;
     }
+
+    
 
     public String getHorario() {
         return horario;
