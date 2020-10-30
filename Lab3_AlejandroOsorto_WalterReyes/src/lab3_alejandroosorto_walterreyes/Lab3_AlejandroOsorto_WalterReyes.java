@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class Lab3_AlejandroOsorto_WalterReyes
@@ -26,6 +27,7 @@ public class Lab3_AlejandroOsorto_WalterReyes
             System.out.println("1-Sign in clientes");
             System.out.println("2-Log-In clientes");
             System.out.println("3-Log-In SUDO");
+            System.out.println("4-Salir");
             System.out.print("Ingrese una opción: ");
             opcion = lectura.nextInt();
 
@@ -132,7 +134,7 @@ public class Lab3_AlejandroOsorto_WalterReyes
                         System.out.println("1) Gestionar Locales");
                         System.out.println("2) Gestionar Personas");
                         System.out.println("3) Gestionar Productos");
-                        System.out.println("4 Salir");
+                        System.out.println("4) Salir");
                         System.out.println("----------");
                         System.out.print("Ingrese la opcion que desee usar: ");
                         subOpcion = lectura.nextInt();
@@ -145,6 +147,7 @@ public class Lab3_AlejandroOsorto_WalterReyes
                                 System.out.println("1) Añadir local");
                                 System.out.println("2) Eliminar local");
                                 System.out.println("3) Editar local");
+                                System.out.println("4) Visualizar locales");
                                 System.out.println("---------------");
                                 System.out.print("Ingrese una opcion: ");
                                 int subSubOpcion = lectura.nextInt();
@@ -209,6 +212,7 @@ public class Lab3_AlejandroOsorto_WalterReyes
                                 System.out.println("1) Añadir producto");
                                 System.out.println("2) Eliminar producto");
                                 System.out.println("3) Editar producto");
+                                System.out.println("4) Visualizar producto");
                                 System.out.println("---------------");
                                 System.out.print("Ingrese una opcion: ");
                                 int subSubOpcion = lectura.nextInt();
@@ -292,9 +296,95 @@ public class Lab3_AlejandroOsorto_WalterReyes
                                                     lectura.nextLine();
                                                     String desc = lectura.nextLine();
                                                     
-                                                    
+                                                    ((Productos)producto.get(pos)).setDescripcion(desc);
                                                 } break;
-                                            }
+                                                case 2:
+                                                {
+                                                    System.out.print("Ingrese el nuevo nombre: ");
+                                                    String nombre = lectura.next();
+                                                    
+                                                    ((Productos)producto.get(pos)).setNombre(nombre);
+                                                } break;
+                                                case 3:
+                                                {
+                                                    System.out.print("Ingrese el nuevo precio: ");
+                                                    double precio = lectura.nextDouble();
+                                                    
+                                                    ((Productos)producto.get(pos)).setPrecio(precio);
+                                                } break;
+                                                case 4:
+                                                {
+                                                    System.out.print("A que tipo desea cambiar?(1= Ropa, 2= Juguetes, 3= Comida): ");
+                                                    int tipo = lectura.nextInt();
+                                                    
+                                                    switch (tipo)
+                                                    {
+                                                        case 1:
+                                                        {
+                                                            System.out.println("Que desea cambiar?");
+                                                            System.out.println("1) Sexo");
+                                                            System.out.println("2) Talla");
+                                                            System.out.print("Ingrese la opcion: ");
+                                                            int opcionRopa = lectura.nextInt();
+                                                            
+                                                            switch (opcionRopa)
+                                                            {
+                                                                case 1:
+                                                                {
+                                                                    System.out.print("Ingrese el nuevo sexo(M/F): ");
+                                                                    char sexo = lectura.next().charAt(0);
+                                                                    
+                                                                    ((Ropa)producto.get(pos)).setTipoSexo(sexo);
+                                                                } break;
+                                                                case 2:
+                                                                {
+                                                                    System.out.print("Ingrese la nueva talla(S,M,L): ");
+                                                                    char talla = lectura.next().charAt(0);
+                                                                    
+                                                                    ((Ropa)producto.get(pos)).setTalla(talla);
+                                                                } break;
+                                                            }
+                                                        } break;
+                                                        case 2:
+                                                        {
+                                                            System.out.println("Ingrese la nueva descripcion del juguete: ");
+                                                            lectura.nextLine();
+                                                            String desc = lectura.nextLine();
+                                                            
+                                                            ((Juguetes)producto.get(pos)).setDescripcionJuguete(desc);
+                                                        } break;
+                                                        case 3:
+                                                        {
+                                                            System.out.println("Que desea cambiar?");
+                                                            System.out.println("1) Tipo de comida");
+                                                            System.out.println("2) Fecha de caducidad");
+                                                            System.out.print("Ingrese la opcion: ");
+                                                            int opcionComida = lectura.nextInt();
+                                                            
+                                                            switch (opcionComida)
+                                                            {
+                                                                case 1:
+                                                                {
+                                                                    System.out.print("Ingrese el nuevo tipo de comida(1= Comida, 2= bebida): ");
+                                                                    int tipoComida = lectura.nextInt();
+                                                                    
+                                                                    ((Comida)producto.get(pos)).setTipoComida(tipoComida);
+                                                                } break;
+                                                                case 2:
+                                                                {
+                                                                    System.out.print("Ingrese la nueva fecha de caducidad(dd/mm/yyyy): ");
+                                                                    String fechaS = lectura.next();
+                                                                    
+                                                                    SimpleDateFormat df = new SimpleDateFormat("dd/mm/yyyy");
+                                                                    Date fecha = df.parse(fechaS);
+                                                                    
+                                                                    ((Comida)producto.get(pos)).setFechaCaducidad(fecha);
+                                                                } break;
+                                                            } //Fin de switch
+                                                        } break;
+                                                    } //Fin de switch
+                                                } break;
+                                            } //Fin de switch
                                         }
                                         else
                                         {
@@ -302,14 +392,23 @@ public class Lab3_AlejandroOsorto_WalterReyes
                                         }
                                         
                                     } break;
-                                }
-                                
+                                    case 4:
+                                    {
+                                        String salida = "";
+                    
+                                        for (Object t : producto)
+                                        {
+                                            salida += producto.indexOf(t)+": "+t+"\n";
+                                        }
+
+                                        System.out.println(salida);
+                                    } break;
+                                } //Fin de switch
                             } break; //Fin de gestion de productos
-                        }
-                    }
-                }
-                break;
+                        } //Fin de switch
+                    } //Fin de while
+                } break;
             }// fin switch
         }// fin while        
-    }
-}
+    } // de metodo main
+} // Fin de clase
